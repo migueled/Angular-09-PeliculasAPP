@@ -9,7 +9,9 @@ import Swiper from 'swiper';
   styleUrls: ['./slideshow.component.css']
 })
 export class SlideshowComponent implements OnInit,AfterViewInit {
+  
   @Input() movies : movie[];
+  private swiper : Swiper;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,9 +19,17 @@ export class SlideshowComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(){
-    const swiper = new Swiper('.swiper-container', {
+    this.swiper = new Swiper('.swiper-container', {
       loop: true
     });
+  }
+
+  onNext(){
+    this.swiper.slideNext();
+  }
+  
+  onPrevious(){
+    this.swiper.slidePrev();
   }
 
 }
