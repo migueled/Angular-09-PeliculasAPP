@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { PeliculasService } from './services/peliculas.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'peliculasapp';
+
+  constructor(private peliculasServices:PeliculasService) {
+    this.peliculasServices.getCartelera()
+    .subscribe( ( data ) => console.log(data));
+  }
 }
