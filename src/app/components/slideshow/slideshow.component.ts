@@ -15,7 +15,6 @@ export class SlideshowComponent implements OnInit,AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.movies);
   }
 
   ngAfterViewInit(){

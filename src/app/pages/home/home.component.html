@@ -8,4 +8,4 @@
 
 <h2 class="mt-3">Peliculas nuevas</h2>
 
-<app-peliculas-poster-grid></app-peliculas-poster-grid>
+<app-peliculas-poster-grid *ngIf="movies.length > 0" [movies]="movies"></app-peliculas-poster-grid>
