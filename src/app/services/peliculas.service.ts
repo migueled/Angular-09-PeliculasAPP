@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { carteleraResponse } from '../interfaces/cartelera.response';
 
+import { tap } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +25,10 @@ export class PeliculasService {
   constructor(private http: HttpClient) { }
 
   getCartelera() : Observable < carteleraResponse >{
-    return this.http.get< carteleraResponse >(`${ this.url }/movie/now_playing`, { params : this.params });
+    return this.http.get< carteleraResponse >(`${ this.url }/movie/now_playing`, { params : this.params })
+    .pipe(
+      tap( () => this.carteleraPage += 1 )
+    );
   }
 
 }

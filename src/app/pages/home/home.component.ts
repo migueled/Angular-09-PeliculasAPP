@@ -9,6 +9,7 @@ import { PeliculasService } from '../../services/peliculas.service';
 })
 export class HomeComponent implements OnInit {
   
+  public moviesSlideShow: movie[] = [];
   public movies: movie[] = [];
 
   @HostListener('window: scroll', ['$event'])
@@ -19,7 +20,11 @@ export class HomeComponent implements OnInit {
     console.log(`${ posicion } + ${ max }`);
 
     if( posicion > max ) {
-      console.log('llamar servicio');
+      this.peliculasServices.getCartelera().subscribe( 
+        data => {
+          this.movies.push(...data.results );
+        }
+      );
     }
   }
 
@@ -27,7 +32,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.peliculasServices.getCartelera()
-    .subscribe( ( data ) => this.movies = data.results );
+    .subscribe( ( data ) => {
+      this.moviesSlideShow  = data.results;
+      this.movies           = data.results;
+    } );
   }
 
 }
