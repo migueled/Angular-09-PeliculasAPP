@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { movie } from 'src/app/interfaces/cartelera.response';
 
+import { StarRatingComponent } from 'ng-starrating';
+
 @Component({
   selector: 'app-peliculas-poster-grid',
   templateUrl: './peliculas-poster-grid.component.html',
@@ -13,8 +15,6 @@ export class PeliculasPosterGridComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.movies);
-  }
+  ngOnInit(): void { console.log(this.movies);}
 
 }
