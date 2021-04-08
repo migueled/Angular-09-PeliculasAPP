@@ -9,12 +9,21 @@ import { carteleraResponse } from '../interfaces/cartelera.response';
 })
 export class PeliculasService {
 
-  url:string='https://api.themoviedb.org/3/movie/now_playing?api_key=74f7e4f50840bfb26f850c13c943b473&language=en-US&page=1';
+  private url:string='https://api.themoviedb.org/3';
 
+  private carteleraPage = 1 ;
+
+  get params(){
+    return {
+      api_key:   '74f7e4f50840bfb26f850c13c943b473',
+      language:  'en-US',
+      page:      this.carteleraPage.toString()
+    }
+  }
   constructor(private http: HttpClient) { }
 
   getCartelera() : Observable < carteleraResponse >{
-    return this.http.get< carteleraResponse >( this.url );
+    return this.http.get< carteleraResponse >(`${ this.url }/movie/now_playing`, { params : this.params });
   }
 
 }
