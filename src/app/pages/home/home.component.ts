@@ -17,13 +17,14 @@ export class HomeComponent implements OnInit {
   onScroll(){
     const posicion = (  document.documentElement.scrollTop || document.body.scrollTop ) + 1300;
     const max = (document.documentElement.scrollHeight || document.body.scrollHeight);
-    console.log(`${ posicion } + ${ max }`);
 
     if( posicion > max ) {
+      if( this.peliculasServices.cargando ){ return ; }
+      
       this.peliculasServices.getCartelera().subscribe( 
-        data => {
-          this.movies.push(...data.results );
-        }
+          data => {
+            this.movies.push(...data );
+          }
       );
     }
   }
@@ -33,8 +34,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.peliculasServices.getCartelera()
     .subscribe( ( data ) => {
-      this.moviesSlideShow  = data.results;
-      this.movies           = data.results;
+      this.moviesSlideShow  = data;
+      this.movies           = data;
     } );
   }
 
