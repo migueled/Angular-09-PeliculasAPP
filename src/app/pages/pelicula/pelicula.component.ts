@@ -4,6 +4,8 @@ import { PeliculasService } from '../../services/peliculas.service';
 
 import { MovieResponse } from 'src/app/interfaces/movie.response';
 
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-pelicula',
   templateUrl: './pelicula.component.html',
@@ -14,12 +16,17 @@ export class PeliculaComponent implements OnInit {
   public movie : MovieResponse;
 
   constructor( private activatedRoute : ActivatedRoute,
-               private peliculasService : PeliculasService ) { }
+               private peliculasService : PeliculasService, 
+               private location : Location) { }
 
   ngOnInit(): void {
     const { id } = this.activatedRoute.snapshot.params//Mas datos en la url
     //const id = this.activatedRoute.snapshot.params.id
     this.peliculasService.getPeliculaDetalle( id ).subscribe( movie => this.movie = movie);
+  }
+
+  onRegresar(){
+    this.location.back();
   }
 
 }
