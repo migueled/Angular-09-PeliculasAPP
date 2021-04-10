@@ -42,7 +42,7 @@ export class PeliculasService {
   }
 
   buscarPelicula( buscar : string ) : Observable < movie[] > {
-    
+
     const params = { ...this.params , page: '1' , query: buscar };
 
     return this.http.get< carteleraResponse >(`${ this.url }/search/movie`,{
@@ -51,5 +51,9 @@ export class PeliculasService {
       map( resp => resp.results )
     );
 
+  }
+
+  resetCarteleraPage(){
+    this.carteleraPage = 1;
   }
 }

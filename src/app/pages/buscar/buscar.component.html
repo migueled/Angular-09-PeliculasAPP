@@ -1,1 +1,10 @@
-<p>buscar works!</p>
+<h2 class="mt-2">Resultados de la busqueda <small *ngIf=" texto ">{{ texto }}</small> </h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <app-peliculas-poster-grid *ngIf="movies.length > 0" [movies]="movies"></app-peliculas-poster-grid>
+
+        </div>
+    </div>
+</div>
