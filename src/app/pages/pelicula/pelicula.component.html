@@ -1,4 +1,4 @@
-<div class="row" *ngIf=" movie ">
+<div class="row animate__animated animate__fadeIn" *ngIf=" movie ">
     <div class="col-md-6">
         <img class="img-thumbnail" [src]="movie.poster_path | poster" [alt]=" movie.title ">
     </div>
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="conteiner">
+<div class="conteiner animate__animated animate__fadeIn">
     <div class="row">
         <div class="col-12">
             <app-cast-slide-show *ngIf="cast.length > 0" [cast]="cast"></app-cast-slide-show>
