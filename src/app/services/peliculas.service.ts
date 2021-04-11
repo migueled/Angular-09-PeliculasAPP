@@ -69,7 +69,7 @@ export class PeliculasService {
   }
 
   //https://api.themoviedb.org/3/movie/399566/credits?api_key=74f7e4f50840bfb26f850c13c943b473&language=en-US
-  getCast( id : string) {
+  getCast( id : string) : Observable < Cast[] > {
     return this.http.get< CreditsResponse >(`${ this.url }/movie/${ id }/credits`, { params :  this.params })
     .pipe(
       map( data => data.cast ),
