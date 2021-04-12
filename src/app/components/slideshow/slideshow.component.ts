@@ -4,31 +4,32 @@ import { movie } from 'src/app/interfaces/cartelera.response';
 import Swiper from 'swiper';
 
 @Component({
-  selector: 'app-slideshow',
-  templateUrl: './slideshow.component.html',
-  styleUrls: ['./slideshow.component.css']
+    selector: 'app-slideshow',
+    templateUrl: './slideshow.component.html',
+    styleUrls: ['./slideshow.component.css']
 })
+
 export class SlideshowComponent implements OnInit,AfterViewInit {
   
-  @Input() movies : movie[];
-  private swiper : Swiper;
-  constructor() { }
+    @Input() movies : movie[];
+    private swiper : Swiper;
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  ngAfterViewInit(){
-    this.swiper = new Swiper('.swiper-container', {
-      loop: true
-    });
-  }
+    ngAfterViewInit() {
+        this.swiper = new Swiper('.swiper-container', {
+            loop: true
+        });
+    }
 
-  onNext(){
-    this.swiper.slideNext();
-  }
+    onNext() {
+        this.swiper.slideNext();
+    }
   
-  onPrevious(){
-    this.swiper.slidePrev();
-  }
+    onPrevious() {
+        this.swiper.slidePrev();
+    }
 
 }

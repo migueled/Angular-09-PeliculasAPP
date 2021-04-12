@@ -10,15 +10,16 @@ import { RatingModule } from 'ng-starrating';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    PeliculaComponent,
-    BuscarComponent],
-  imports: [
-    CommonModule,
-    ComponentsModule,
-    PipesModule,
-    RatingModule
-  ]
+    declarations: [
+        HomeComponent,
+        PeliculaComponent,
+        BuscarComponent],
+    imports: [
+        CommonModule,
+        ComponentsModule,
+        PipesModule,
+        RatingModule
+    ]
 })
+
 export class PagesModule { }

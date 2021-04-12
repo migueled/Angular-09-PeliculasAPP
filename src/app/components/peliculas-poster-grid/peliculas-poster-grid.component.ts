@@ -5,19 +5,20 @@ import { movie } from 'src/app/interfaces/cartelera.response';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-peliculas-poster-grid',
-  templateUrl: './peliculas-poster-grid.component.html',
-  styleUrls: ['./peliculas-poster-grid.component.css']
+    selector: 'app-peliculas-poster-grid',
+    templateUrl: './peliculas-poster-grid.component.html',
+    styleUrls: ['./peliculas-poster-grid.component.css']
 })
+
 export class PeliculasPosterGridComponent implements OnInit {
 
-  @Input() movies: movie[];
+    @Input() movies : movie[];
 
-  constructor( private router: Router ) { }
+    constructor( private router: Router ) { }
 
-  ngOnInit(): void { }
+    ngOnInit(): void { }
 
-  onMovieClick( movie : movie ){
-    this.router.navigate(['/pelicula', movie.id ]);
-  }
+    onMovieClick( movie : movie ){
+        this.router.navigate(['/pelicula', movie.id ]);
+    }
 }

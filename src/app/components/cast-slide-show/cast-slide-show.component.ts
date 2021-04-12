@@ -4,25 +4,23 @@ import { Cast } from 'src/app/interfaces/credits.response';
 import Swiper from 'swiper';
 
 @Component({
-  selector: 'app-cast-slide-show',
-  templateUrl: './cast-slide-show.component.html',
-  styleUrls: ['./cast-slide-show.component.css']
+    selector: 'app-cast-slide-show',
+    templateUrl: './cast-slide-show.component.html',
+    styleUrls: ['./cast-slide-show.component.css']
 })
 export class CastSlideShowComponent implements OnInit, AfterViewInit {
 
-  @Input() cast : Cast[];
+    @Input() cast : Cast[];
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-    console.log( this.cast );
-  }
+    ngOnInit(): void { }
   
-  ngAfterViewInit(){
-    const swiper = new Swiper('.swiper-container', {
-      slidesPerView: 5.3,
-      freeMode: true,
-      spaceBetween: 15
-    });
-  }
+    ngAfterViewInit() {
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 5.3,
+            freeMode: true,
+            spaceBetween: 15
+        });
+    }
 }
